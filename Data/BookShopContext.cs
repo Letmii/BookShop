@@ -9,11 +9,11 @@ namespace BookShop.Data
 {
     public class BookShopContext : DbContext
     {
-        public BookShopContext (DbContextOptions<BookShopContext> options)
+        public BookShopContext (DbContextOptions options)
             : base(options)
         {
         }
 
-        public DbSet<BookShop.Models.Book> Book { get; set; } = default!;
+        public DbSet<Book> Books { get; set; }
     }
 }
