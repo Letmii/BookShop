@@ -48,6 +48,19 @@ namespace BookShop.Models
                        Description = "abcdef"
                    }
                 );
+                context.Books.AddRange(
+                   new Book
+                   {
+                       Title = "Tomcio Paluch",
+                       Language = "Polski",
+                       ISBN = "97899688313",
+                       PublishedDate = DateTime.Parse("2012-9-26"),
+                       Price = 11,
+                       Author = "Tomek",
+                       ImageUrl = "/images/adad.jpg",
+                       Description = "abcdeaaaf"
+                   }
+                );
                 context.Books.AddRange();
                 context.SaveChanges();
             }
