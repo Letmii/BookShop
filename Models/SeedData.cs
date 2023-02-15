@@ -36,7 +36,8 @@ namespace BookShop.Models
             if (!await context.Books.AnyAsync())
             {
                 context.Books.AddRange(
-                   new Book
+                
+                    new Book
                    {
                        Title = "Harry Potter",
                        Language = "Swedish",
@@ -46,22 +47,20 @@ namespace BookShop.Models
                        Author = "Tomek",
                        ImageUrl = "/images/abcd.jpg",
                        Description = "abcdef"
-                   }
-                );
-                context.Books.AddRange(
-                   new Book
+                   },
+                    new Book
                    {
-                       Title = "Tomcio Paluch",
-                       Language = "Polski",
-                       ISBN = "97899688313",
-                       PublishedDate = DateTime.Parse("2012-9-26"),
-                       Price = 11,
-                       Author = "Tomek",
-                       ImageUrl = "/images/adad.jpg",
-                       Description = "abcdeaaaf"
+                       Title = "Harry Potter 2",
+                       Language = "Polish",
+                       ISBN = "9789129688313",
+                       PublishedDate = DateTime.Parse("2012-2-21"),
+                       Price = 12,
+                       Author = "Dariusz",
+                       ImageUrl = "/images/abcd4567.jpg",
+                       Description = "abcdef1235"
                    }
                 );
-                context.Books.AddRange();
+                
                 context.SaveChanges();
             }
         }

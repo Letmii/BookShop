@@ -9,7 +9,7 @@ namespace BookShop.Data
 {
     public class BookShopContext : DbContext
     {
-        public BookShopContext (DbContextOptions options)
+        public BookShopContext (DbContextOptions<BookShopContext> options)
             : base(options)
         {
         }
