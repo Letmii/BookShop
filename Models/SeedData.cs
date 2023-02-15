@@ -39,25 +39,13 @@ namespace BookShop.Models
                 
                     new Book
                    {
-                       Title = "Harry Potter",
-                       Language = "Swedish",
+                       Title = "Harry Potter and the Philosopher's Stone",
+                       Language = "English",
                        ISBN = "9789129688313",
-                       PublishedDate = DateTime.Parse("2002-9-26"),
+                       PublishedDate = DateTime.Parse("2002-1-18"),
                        Price = 56,
-                       Author = "Tomek",
-                       ImageUrl = "/images/abcd.jpg",
-                       Description = "abcdef"
-                   },
-                    new Book
-                   {
-                       Title = "Harry Potter 2",
-                       Language = "Polish",
-                       ISBN = "9789129688313",
-                       PublishedDate = DateTime.Parse("2012-2-21"),
-                       Price = 12,
-                       Author = "Dariusz",
-                       ImageUrl = "/images/abcd4567.jpg",
-                       Description = "abcdef1235"
+                       Author = "J.K. Rowling",
+                       ImageUrl = "/images/harry1.jpg"
                    }
                 );
                 
