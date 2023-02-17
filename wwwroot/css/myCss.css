@@ -21,3 +21,13 @@
     transform: scale(1.03);
     box-shadow: lightgray 2px 5px 5px 2px;
 }
+
+.shop-btn{
+    transition: all 0.2s ease;
+}
+
+.shop-btn:hover {
+    background-color: green;
+    border: 1px solid green;
+}
+
