@@ -6,7 +6,7 @@
 
     <h2 class=" my-4"></h2>
 
-    <div class="row">
+<div class="row">
     @foreach (var book in Model)
     {
         <div class="col-3">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="card-body">
                         <span class="card-text">@book.Price.ToString("c")</span>
-                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.Id" class="btn btn-primary float-right shop-btn"><i class="fa-solid fa-cart-plus"></i></a>
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.Id" class="btn btn-primary float-end shop-btn"><i class="fa-solid fa-cart-plus"></i></a>
                     </div>
                 </a>
             </div>
