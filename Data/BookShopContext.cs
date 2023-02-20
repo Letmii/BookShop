@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using BookShop.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BookShop.Data
 {
-    public class BookShopContext : DbContext
+    public class BookShopContext : IdentityDbContext<DefaultUser>
     {
         public BookShopContext (DbContextOptions<BookShopContext> options)
             : base(options)
@@ -18,5 +19,6 @@ namespace BookShop.Data
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+
     }
 }
