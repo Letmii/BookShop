@@ -117,7 +117,7 @@ namespace BookShop.Models
                     Email = email,
                     UserName = email,
                     FirstName = "Admin",
-                    LastName = "Adminsson",
+                    LastName = "Admins",
                     Address = "Adstreet 3",
                     City = "Big City",
                     ZipCode = "12345"
