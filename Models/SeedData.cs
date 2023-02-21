@@ -15,6 +15,8 @@ namespace BookShop.Models
             var scope = app.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<BookShopContext>();
             var storeContext = scope.ServiceProvider.GetRequiredService<BookShopContext>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<DefaultUser>>();
 
 
             var pendingMigrations = context.Database.GetPendingMigrations();
@@ -88,10 +90,47 @@ namespace BookShop.Models
                         ImageUrl = "/images/fairytale.jpg"
                     }
                 );
-
-                
                 context.SaveChanges();
             }
+
+            string[] roleNames = { "Admin", "User" };
+
+            IdentityResult roleResult;
+
+            foreach (var role in roleNames)
+            {
+                var roleExists = await roleManager.RoleExistsAsync(role);
+
+                if (!roleExists)
+                {
+                    roleResult = await roleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
+
+            var email = "admin@site.com";
+            var password = "Qwerty123!";
+
+            if (userManager.FindByEmailAsync(email).Result == null)
+            {
+                DefaultUser user = new()
+                {
+                    Email = email,
+                    UserName = email,
+                    FirstName = "Admin",
+                    LastName = "Adminsson",
+                    Address = "Adstreet 3",
+                    City = "Big City",
+                    ZipCode = "12345"
+                };
+
+                IdentityResult result = userManager.CreateAsync(user, password).Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Admin").Wait();
+                }
+            }
+            context.SaveChanges();
         }
     }
 }
